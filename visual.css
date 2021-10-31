@@ -1,0 +1,30 @@
+window
+{
+	background-color : white;
+	border-width : 10;
+}
+
+button
+{
+	border-radius: 15px;
+}
+
+button:hover
+{
+	border-radius: 15px;
+}
+
+button:active
+{
+	border-radius: 15px;
+}
+
+lab
+{
+	border-radius : 15px;
+	font-family : Pango;
+	font-size: 40px;
+}
+
+
+
