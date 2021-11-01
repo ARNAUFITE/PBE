@@ -21,14 +21,12 @@ class Finestra < Gtk::Window
 		set_title 'Puzzle 2'
 		set_border_width 10
 		set_default_size 400,200 
-		set_window_position Gtk::Window::Position::CENTER
-
+		set_window_position Gtk::WindowPosition::CENTER
 
 		@@rf = Rfid.new
 		
 		# Inicialització del text inicial
-		
-		@lab = Gtk::Label.new("Please, login with your university card", true)
+		@lab = Gtk::Label.new("Please, login with your university card", {:use_underline => true})
 		@lab.style_context.add_provider(css_provider, style_provider)
 		@lab.override_font(@@font)
 		@lab.override_color(:normal,@@white)
@@ -38,25 +36,22 @@ class Finestra < Gtk::Window
 		@@box.add(@lab)
 		@@box.set_size_request(400,150)
 		
-	
 		
-		#Botó ( inicialment esta desactivat)
-		
+		#Botó ( inicialment esta desactivat)		
 		@@button = Gtk::Button.new(label: 'Clear')
 		@@button.style_context.add_provider(css_provider, style_provider)
 		@@button.set_size_request(400,50)	
 		@@button.signal_connect('clicked') {canvi}
 		@@button.set_sensitive(false)
+		@@button.signal_connect("destroy"){ Gtk.main_quit}
 		
 
-		#Codi inserir elements a la finestra
-		
-		@@caixa = Gtk::VBox.new(false,10)
+		#Codi inserir elements a la finestra	
+		@@caixa = Gtk::Box.new(:vertical,10)
 		@@caixa.style_context.add_provider(css_provider, style_provider)
-		@@caixa.pack_start(@@box,false,false,0)
-		@@caixa.pack_start(@@button,false,false,0)
+		@@caixa.pack_start(@@box,:expand => false,:fill =>false,:padding => 0)
+		@@caixa.pack_start(@@button,:expand => false,:fill => false,:padding => 0)
 		add(@@caixa)
-		
 		
 		
 		def llegir
@@ -82,18 +77,12 @@ class Finestra < Gtk::Window
 			@@button.set_sensitive(false)
 			llegir
 			end
-			
-		show
-		llegir
-		
 				
-	
-end
+		show
+		llegir	
+	end
 	
 window = Finestra.new
 window.show_all
 Gtk.main	
-
-
-
 end
