@@ -2,7 +2,7 @@
 
 $servername = "localhost:3306";
 $username = "root";
-$password = "eudalius";   //posar contrasenya
+$password = "Mmccmmcc1965";   //posar contrasenya
 
 
      //conexió al servidor MySQL
@@ -11,14 +11,15 @@ $password = "eudalius";   //posar contrasenya
          echo "failed connection";
      }
 
-     mysqli_select_db($link, "atenea"); 
+     mysqli_select_db($link, "course_manager"); 
      $usrq=$_SERVER['QUERY_STRING'];            //Rep la query
+     //$usrq = "timetable?subjeccct=pbe";
  
 
      $tableiq=explode("?", $usrq);              //Separa la query amb la taula i les restriccions
      $table=$tableiq[0];                        
 
-     parse_str($usrq, $array);                      //Creem l'array de restriccions
+     parse_str($usrq, $array);                      //
      if(sizeof($tableiq)==1&&sizeof($array)==2){
          parse_str($usrq, $array);
          $tableiq=$array;
@@ -116,7 +117,8 @@ $password = "eudalius";   //posar contrasenya
      
      $resultado= mysqli_query($link ,$finalq);              //Enviem la query
      if (!$resultado) {
-         echo mysqli_error($link);
+         //echo mysqli_error($link);
+         echo "Error de Sintaxis";
      }
      $i=0;
      if($resultado!=null){
@@ -124,12 +126,13 @@ $password = "eudalius";   //posar contrasenya
          $i++;
          echo json_encode($fila) . "\n";                    //Envia cap al client les dades de la taula
      }
+     mysqli_free_result($resultado);
     }
      if($i==0 & $table=="students"){                                        //S'hi s'ha accedit amb un UID no vàlid envia el missatge d'error
         echo "User not found: please login with your university card";
 
      }
-     mysqli_free_result($resultado);
+
      // Close connection
      
      mysqli_close($link);
