@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F9FF"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/welcome_label"
+        android:layout_width="161dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:autoText="false"
+        android:elegantTextHeight="false"
+        android:freezesText="true"
+        android:text="WELCOME TO COURSE MANAGER"
+        android:textAlignment="center"
+        android:textColor="#30A3FF"
+        android:textColorHint="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/username"
+        android:layout_width="168dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:drawable/edit_text"
+        android:hint="@string/username"
+        android:singleLine="true"
+        android:textColorHint="#938B8B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/url"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck,TextContrastCheck" />
+
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/password"
+        android:layout_width="170dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:drawable/edit_text"
+        android:hint="@string/password"
+        android:singleLine="true"
+        android:textColorHint="#938B8B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username"
+        tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
+
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/url"
+        android:layout_width="169dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:drawable/edit_text"
+        android:backgroundTint="#FFFFFF"
+        android:backgroundTintMode="multiply"
+        android:hapticFeedbackEnabled="false"
+        android:hint="@string/host_port_path"
+        android:keepScreenOn="false"
+        android:labelFor="@id/password"
+        android:singleLine="true"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColorHint="#938B8B"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_label"
+        tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
+
+    <Button
+        android:id="@+id/loginbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="#30A3FF"
+        android:text="@string/login"
+        android:textColor="#F1F9FF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="71dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.183"
+        app:srcCompat="@drawable/agenda"/>
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="150dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="10dp"
+        android:text="Save credentials"
+        android:textColorLink="#30A3FF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
+
+</android.support.constraint.ConstraintLayout>
